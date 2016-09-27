@@ -16,4 +16,13 @@ FOUNDATION_EXPORT const unsigned char FMDBVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <FMDB/PublicHeader.h>
 
+#import <FMDB/FMDatabase.h>
+#import <FMDB/FMResultSet.h.h>
+#import <FMDB/FMDatabaseAdditions.h>
+#import <FMDB/FMDatabaseQueue.h>
+#import <FMDB/FMDatabasePool.h>
+
+// 全文检索部分
+#import <FMDB/FMDatabase+FTS3.h>
+#import <FMDB/FMTokenizers.h>
 
