@@ -29,7 +29,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
     return q;
 }
 
-- (instancetype)initWithPath:(NSString*)aPath
+- (instancetype)initWithPath:(NSString *)aPath
                        flags:(int)openFlags
                          vfs:(NSString *)vfsName
                     password:(NSString *)password {
@@ -50,7 +50,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
             NSLog(@"Could not create database queue for path %@", aPath);
             FMDBRelease(self);
             return 0x00;
-        }else{  // toon加密
+        }else{  // 数据库加密
             [_db setKey:password];
         }
         

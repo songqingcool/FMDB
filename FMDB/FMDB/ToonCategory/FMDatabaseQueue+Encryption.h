@@ -13,7 +13,7 @@
 + (instancetype)databaseQueueWithPath:(NSString *)aPath
                              password:(NSString *)password;
 
-- (instancetype)initWithPath:(NSString*)aPath
+- (instancetype)initWithPath:(NSString *)aPath
                        flags:(int)openFlags
                          vfs:(NSString *)vfsName
                     password:(NSString *)password;
