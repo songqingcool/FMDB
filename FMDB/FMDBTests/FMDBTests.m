@@ -2,7 +2,7 @@
 //  FMDBTests.m
 //  FMDBTests
 //
-//  Created by SONGQG on 2016/9/27.
+//  Created by 宋庆功 on 2016/9/27.
 //  Copyright © 2016年 思源. All rights reserved.
 //
 
