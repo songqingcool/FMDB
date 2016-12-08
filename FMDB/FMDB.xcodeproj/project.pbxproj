@@ -41,7 +41,7 @@
 		E9354CD91D9A6BF600D613B2 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E9354CBE1D9A6BF600D613B2 /* FMDatabaseQueue.m */; };
 		E9354CDA1D9A6BF600D613B2 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E9354CBF1D9A6BF600D613B2 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9354CDB1D9A6BF600D613B2 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9354CC01D9A6BF600D613B2 /* FMResultSet.m */; };
-		E9354CE11D9A70E800D613B2 /* FMDatabaseQueue+Encryption.h in Headers */ = {isa = PBXBuildFile; fileRef = E9354CDF1D9A70E800D613B2 /* FMDatabaseQueue+Encryption.h */; };
+		E9354CE11D9A70E800D613B2 /* FMDatabaseQueue+Encryption.h in Headers */ = {isa = PBXBuildFile; fileRef = E9354CDF1D9A70E800D613B2 /* FMDatabaseQueue+Encryption.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9354CE21D9A70E800D613B2 /* FMDatabaseQueue+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = E9354CE01D9A70E800D613B2 /* FMDatabaseQueue+Encryption.m */; };
 /* End PBXBuildFile section */
 
@@ -113,7 +113,6 @@
 		E9354C121D9A64E200D613B2 = {
 			isa = PBXGroup;
 			children = (
-				E9354C671D9A67FC00D613B2 /* Frameworks */,
 				E9354C1E1D9A64E200D613B2 /* FMDB */,
 				E9354C291D9A64E200D613B2 /* FMDBTests */,
 				E9354C1D1D9A64E200D613B2 /* Products */,
@@ -151,13 +150,6 @@
 				E9354C2C1D9A64E200D613B2 /* Info.plist */,
 			);
 			path = FMDBTests;
-			sourceTree = "<group>";
-		};
-		E9354C671D9A67FC00D613B2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		E9354CA51D9A6BF600D613B2 /* doc */ = {
@@ -228,9 +220,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9354CE11D9A70E800D613B2 /* FMDatabaseQueue+Encryption.h in Headers */,
 				E9354CD61D9A6BF600D613B2 /* FMDatabasePool.h in Headers */,
 				E9354CCA1D9A6BF600D613B2 /* FMTokenizers.h in Headers */,
-				E9354CE11D9A70E800D613B2 /* FMDatabaseQueue+Encryption.h in Headers */,
 				E9354CD41D9A6BF600D613B2 /* FMDatabaseAdditions.h in Headers */,
 				E9354CD21D9A6BF600D613B2 /* FMDatabase.h in Headers */,
 				E9354CD81D9A6BF600D613B2 /* FMDatabaseQueue.h in Headers */,
@@ -287,7 +279,7 @@
 		E9354C131D9A64E200D613B2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "思源";
 				TargetAttributes = {
 					E9354C1B1D9A64E200D613B2 = {
@@ -410,6 +402,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -461,6 +454,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
