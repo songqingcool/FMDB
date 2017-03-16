@@ -63,18 +63,11 @@
 		E9354C2A1D9A64E200D613B2 /* FMDBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBTests.m; sourceTree = "<group>"; };
 		E9354C2C1D9A64E200D613B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9354C6A1D9A682100D613B2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		E9354CA61D9A6BF600D613B2 /* CHANGES_AND_TODO_LIST.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGES_AND_TODO_LIST.txt; sourceTree = "<group>"; };
-		E9354CA71D9A6BF600D613B2 /* CONTRIBUTORS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CONTRIBUTORS.txt; sourceTree = "<group>"; };
-		E9354CA81D9A6BF600D613B2 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		E9354CA91D9A6BF600D613B2 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		E9354CAB1D9A6BF600D613B2 /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
 		E9354CAC1D9A6BF600D613B2 /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
 		E9354CAD1D9A6BF600D613B2 /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTokenizers.h; sourceTree = "<group>"; };
 		E9354CAE1D9A6BF600D613B2 /* FMTokenizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMTokenizers.m; sourceTree = "<group>"; };
 		E9354CAF1D9A6BF600D613B2 /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
-		E9354CB11D9A6BF600D613B2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		E9354CB21D9A6BF600D613B2 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		E9354CB31D9A6BF600D613B2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E9354CB41D9A6BF600D613B2 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
 		E9354CB51D9A6BF600D613B2 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
 		E9354CB71D9A6BF600D613B2 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -132,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				E9354CDE1D9A70E800D613B2 /* Category */,
-				E9354CA51D9A6BF600D613B2 /* doc */,
 				E9354CAA1D9A6BF600D613B2 /* fts3 */,
 				E9354CB01D9A6BF600D613B2 /* SQLCipher */,
 				E9354CB61D9A6BF600D613B2 /* src */,
@@ -152,17 +144,6 @@
 			path = FMDBTests;
 			sourceTree = "<group>";
 		};
-		E9354CA51D9A6BF600D613B2 /* doc */ = {
-			isa = PBXGroup;
-			children = (
-				E9354CA61D9A6BF600D613B2 /* CHANGES_AND_TODO_LIST.txt */,
-				E9354CA71D9A6BF600D613B2 /* CONTRIBUTORS.txt */,
-				E9354CA81D9A6BF600D613B2 /* LICENSE.txt */,
-				E9354CA91D9A6BF600D613B2 /* README.markdown */,
-			);
-			path = doc;
-			sourceTree = "<group>";
-		};
 		E9354CAA1D9A6BF600D613B2 /* fts3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,9 +159,6 @@
 		E9354CB01D9A6BF600D613B2 /* SQLCipher */ = {
 			isa = PBXGroup;
 			children = (
-				E9354CB11D9A6BF600D613B2 /* LICENSE */,
-				E9354CB21D9A6BF600D613B2 /* README */,
-				E9354CB31D9A6BF600D613B2 /* README.md */,
 				E9354CB51D9A6BF600D613B2 /* sqlite3.h */,
 				E9354CB41D9A6BF600D613B2 /* sqlite3.c */,
 			);
