@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		E9354C361D9A65BC00D613B2 /* FMDBAgg */ = {
+		E96BCC1C1E7F78830033CCC8 /* FMDBAgg */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = E9354C371D9A65BD00D613B2 /* Build configuration list for PBXAggregateTarget "FMDBAgg" */;
+			buildConfigurationList = E96BCC1D1E7F78830033CCC8 /* Build configuration list for PBXAggregateTarget "FMDBAgg" */;
 			buildPhases = (
-				E9354C3A1D9A65C800D613B2 /* ShellScript */,
+				E96BCC201E7F78F60033CCC8 /* ShellScript */,
 			);
 			dependencies = (
 			);
@@ -29,7 +29,7 @@
 		E9354CCA1D9A6BF600D613B2 /* FMTokenizers.h in Headers */ = {isa = PBXBuildFile; fileRef = E9354CAD1D9A6BF600D613B2 /* FMTokenizers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9354CCB1D9A6BF600D613B2 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = E9354CAE1D9A6BF600D613B2 /* FMTokenizers.m */; };
 		E9354CCC1D9A6BF600D613B2 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = E9354CAF1D9A6BF600D613B2 /* fts3_tokenizer.h */; };
-		E9354CD01D9A6BF600D613B2 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = E9354CB41D9A6BF600D613B2 /* sqlite3.c */; };
+		E9354CD01D9A6BF600D613B2 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = E9354CB41D9A6BF600D613B2 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-DNDEBUG -DSQLITE_HAS_CODEC -DSQLITE_TEMP_STORE=2 -DSQLITE_SOUNDEX -DSQLITE_THREADSAFE -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_STAT3 -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_MEMORY_MANAGEMENT -DSQLITE_ENABLE_LOAD_EXTENSION -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS4_UNICODE61 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS5 -DSQLCIPHER_CRYPTO_CC -fno-objc-arc"; }; };
 		E9354CD11D9A6BF600D613B2 /* sqlite3.h in Headers */ = {isa = PBXBuildFile; fileRef = E9354CB51D9A6BF600D613B2 /* sqlite3.h */; };
 		E9354CD21D9A6BF600D613B2 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9354CB71D9A6BF600D613B2 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9354CD31D9A6BF600D613B2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9354CB81D9A6BF600D613B2 /* FMDatabase.m */; };
@@ -82,6 +82,8 @@
 		E9354CC01D9A6BF600D613B2 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		E9354CDF1D9A70E800D613B2 /* FMDatabaseQueue+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabaseQueue+Encryption.h"; sourceTree = "<group>"; };
 		E9354CE01D9A70E800D613B2 /* FMDatabaseQueue+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabaseQueue+Encryption.m"; sourceTree = "<group>"; };
+		E96BCC181E7F765E0033CCC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E96BCC1A1E7F76670033CCC8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				E9354C1E1D9A64E200D613B2 /* FMDB */,
 				E9354C291D9A64E200D613B2 /* FMDBTests */,
 				E9354C1D1D9A64E200D613B2 /* Products */,
+				E96BCC171E7F765E0033CCC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +194,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		E96BCC171E7F765E0033CCC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E96BCC1A1E7F76670033CCC8 /* Security.framework */,
+				E96BCC181E7F765E0033CCC8 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -262,14 +274,14 @@
 				TargetAttributes = {
 					E9354C1B1D9A64E200D613B2 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					E9354C241D9A64E200D613B2 = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
-					E9354C361D9A65BC00D613B2 = {
-						CreatedOnToolsVersion = 8.0;
+					E96BCC1C1E7F78830033CCC8 = {
+						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -288,7 +300,7 @@
 			targets = (
 				E9354C1B1D9A64E200D613B2 /* FMDB */,
 				E9354C241D9A64E200D613B2 /* FMDBTests */,
-				E9354C361D9A65BC00D613B2 /* FMDBAgg */,
+				E96BCC1C1E7F78830033CCC8 /* FMDBAgg */,
 			);
 		};
 /* End PBXProject section */
@@ -311,7 +323,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E9354C3A1D9A65C800D613B2 /* ShellScript */ = {
+		E96BCC201E7F78F60033CCC8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -465,9 +477,15 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = FMDB/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -476,11 +494,27 @@
 				OTHER_CFLAGS = (
 					"-fembed-bitcode",
 					"-DSQLITE_HAS_CODEC",
-					"-DSQLCIPHER_CRYPTO_CC",
 					"-DSQLITE_TEMP_STORE=2",
+					"-DSQLITE_SOUNDEX",
 					"-DSQLITE_THREADSAFE",
+					"-DSQLITE_ENABLE_RTREE",
+					"-DSQLITE_ENABLE_STAT3",
+					"-DSQLITE_ENABLE_STAT4",
+					"-DSQLITE_ENABLE_COLUMN_METADATA",
+					"-DSQLITE_ENABLE_MEMORY_MANAGEMENT",
+					"-DSQLITE_ENABLE_LOAD_EXTENSION",
+					"-DSQLITE_ENABLE_FTS4",
+					"-DSQLITE_ENABLE_FTS4_UNICODE61",
+					"-DSQLITE_ENABLE_FTS3_PARENTHESIS",
+					"-DSQLITE_ENABLE_UNLOCK_NOTIFY",
+					"-DSQLITE_ENABLE_JSON1",
+					"-DSQLITE_ENABLE_FTS5",
+					"-DSQLCIPHER_CRYPTO_CC",
 				);
-				OTHER_LDFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fembed-bitcode",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.syswin.FMDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -492,9 +526,12 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = FMDB/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -503,11 +540,27 @@
 				OTHER_CFLAGS = (
 					"-fembed-bitcode",
 					"-DSQLITE_HAS_CODEC",
-					"-DSQLCIPHER_CRYPTO_CC",
 					"-DSQLITE_TEMP_STORE=2",
+					"-DSQLITE_SOUNDEX",
 					"-DSQLITE_THREADSAFE",
+					"-DSQLITE_ENABLE_RTREE",
+					"-DSQLITE_ENABLE_STAT3",
+					"-DSQLITE_ENABLE_STAT4",
+					"-DSQLITE_ENABLE_COLUMN_METADATA",
+					"-DSQLITE_ENABLE_MEMORY_MANAGEMENT",
+					"-DSQLITE_ENABLE_LOAD_EXTENSION",
+					"-DSQLITE_ENABLE_FTS4",
+					"-DSQLITE_ENABLE_FTS4_UNICODE61",
+					"-DSQLITE_ENABLE_FTS3_PARENTHESIS",
+					"-DSQLITE_ENABLE_UNLOCK_NOTIFY",
+					"-DSQLITE_ENABLE_JSON1",
+					"-DSQLITE_ENABLE_FTS5",
+					"-DSQLCIPHER_CRYPTO_CC",
 				);
-				OTHER_LDFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fembed-bitcode",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.syswin.FMDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -534,20 +587,18 @@
 			};
 			name = Release;
 		};
-		E9354C381D9A65BD00D613B2 /* Debug */ = {
+		E96BCC1E1E7F78830033CCC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				MACH_O_TYPE = staticlib;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "-fembed-bitcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		E9354C391D9A65BD00D613B2 /* Release */ = {
+		E96BCC1F1E7F78830033CCC8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				MACH_O_TYPE = staticlib;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "-fembed-bitcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -584,11 +635,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9354C371D9A65BD00D613B2 /* Build configuration list for PBXAggregateTarget "FMDBAgg" */ = {
+		E96BCC1D1E7F78830033CCC8 /* Build configuration list for PBXAggregateTarget "FMDBAgg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9354C381D9A65BD00D613B2 /* Debug */,
-				E9354C391D9A65BD00D613B2 /* Release */,
+				E96BCC1E1E7F78830033CCC8 /* Debug */,
+				E96BCC1F1E7F78830033CCC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
