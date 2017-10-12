@@ -20,8 +20,8 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
 @implementation FMDatabaseQueue (ToonEncryption)
 
 + (instancetype)databaseQueueWithPath:(NSString *)aPath
-                             password:(NSString *)password {
-    
+                             password:(NSString *)password
+{
     FMDatabaseQueue *q = [[self alloc] initWithPath:aPath flags:SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE vfs:nil password:password];
     
     FMDBAutorelease(q);
@@ -32,8 +32,8 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
 - (instancetype)initWithPath:(NSString *)aPath
                        flags:(int)openFlags
                          vfs:(NSString *)vfsName
-                    password:(NSString *)password {
-    
+                    password:(NSString *)password
+{
     self = [super init];
     
     if (self != nil) {
