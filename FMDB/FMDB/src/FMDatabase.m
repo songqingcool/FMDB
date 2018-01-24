@@ -68,6 +68,7 @@ NS_ASSUME_NONNULL_END
         _logsErrors                 = YES;
         _crashOnErrors              = NO;
         _maxBusyRetryTimeInterval   = 2;
+        _isOpen                     = NO;
     }
     
     return self;
@@ -98,7 +99,7 @@ NS_ASSUME_NONNULL_END
 }
 
 + (NSString*)FMDBUserVersion {
-    return @"2.7.2";
+    return @"2.7.4";
 }
 
 // returns 0x0240 for version 2.4.  This makes it super easy to do things like:
@@ -160,10 +161,18 @@ NS_ASSUME_NONNULL_END
 #pragma mark Open and close database
 
 - (BOOL)open {
-    if (_db) {
+    if (_isOpen) {
         return YES;
     }
     
+    // if we previously tried to open and it failed, make sure to close it before we try again
+    
+    if (_db) {
+        [self close];
+    }
+    
+    // now open database
+
     int err = sqlite3_open([self sqlitePath], (sqlite3**)&_db );
     if(err != SQLITE_OK) {
         NSLog(@"error opening!: %d", err);
@@ -175,6 +184,7 @@ NS_ASSUME_NONNULL_END
         [self setMaxBusyRetryTimeInterval:_maxBusyRetryTimeInterval];
     }
     
+    _isOpen = YES;
     
     return YES;
 }
@@ -182,11 +192,20 @@ NS_ASSUME_NONNULL_END
 - (BOOL)openWithFlags:(int)flags {
     return [self openWithFlags:flags vfs:nil];
 }
+
 - (BOOL)openWithFlags:(int)flags vfs:(NSString *)vfsName {
 #if SQLITE_VERSION_NUMBER >= 3005000
-    if (_db) {
+    if (_isOpen) {
         return YES;
     }
+    
+    // if we previously tried to open and it failed, make sure to close it before we try again
+    
+    if (_db) {
+        [self close];
+    }
+    
+    // now open database
     
     int err = sqlite3_open_v2([self sqlitePath], (sqlite3**)&_db, flags, [vfsName UTF8String]);
     if(err != SQLITE_OK) {
@@ -199,13 +218,14 @@ NS_ASSUME_NONNULL_END
         [self setMaxBusyRetryTimeInterval:_maxBusyRetryTimeInterval];
     }
     
+    _isOpen = YES;
+    
     return YES;
 #else
     NSLog(@"openWithFlags requires SQLite 3.5");
     return NO;
 #endif
 }
-
 
 - (BOOL)close {
     
@@ -241,6 +261,8 @@ NS_ASSUME_NONNULL_END
     while (retry);
     
     _db = nil;
+    _isOpen = false;
+    
     return YES;
 }
 
@@ -466,7 +488,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 
 - (BOOL)goodConnection {
     
-    if (!_db) {
+    if (!_isOpen) {
         return NO;
     }
     
@@ -493,7 +515,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 
 - (BOOL)databaseExists {
     
-    if (!_db) {
+    if (!_isOpen) {
         
         NSLog(@"The FMDatabase %@ is not open.", self);
         
@@ -1312,6 +1334,16 @@ int FMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **values,
     return b;
 }
 
+- (BOOL)beginTransaction {
+    
+    BOOL b = [self executeUpdate:@"begin exclusive transaction"];
+    if (b) {
+        _isInTransaction = YES;
+    }
+    
+    return b;
+}
+
 - (BOOL)beginDeferredTransaction {
     
     BOOL b = [self executeUpdate:@"begin deferred transaction"];
@@ -1322,7 +1354,17 @@ int FMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **values,
     return b;
 }
 
-- (BOOL)beginTransaction {
+- (BOOL)beginImmediateTransaction {
+    
+    BOOL b = [self executeUpdate:@"begin immediate transaction"];
+    if (b) {
+        _isInTransaction = YES;
+    }
+    
+    return b;
+}
+
+- (BOOL)beginExclusiveTransaction {
     
     BOOL b = [self executeUpdate:@"begin exclusive transaction"];
     if (b) {
@@ -1423,6 +1465,37 @@ static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
 #endif
 }
 
+- (BOOL)checkpoint:(FMDBCheckpointMode)checkpointMode error:(NSError * __autoreleasing *)error {
+    return [self checkpoint:checkpointMode name:nil logFrameCount:NULL checkpointCount:NULL error:error];
+}
+
+- (BOOL)checkpoint:(FMDBCheckpointMode)checkpointMode name:(NSString *)name error:(NSError * __autoreleasing *)error {
+    return [self checkpoint:checkpointMode name:name logFrameCount:NULL checkpointCount:NULL error:error];
+}
+
+- (BOOL)checkpoint:(FMDBCheckpointMode)checkpointMode name:(NSString *)name logFrameCount:(int *)logFrameCount checkpointCount:(int *)checkpointCount error:(NSError * __autoreleasing *)error
+{
+    const char* dbName = [name UTF8String];
+#if SQLITE_VERSION_NUMBER >= 3007006
+    int err = sqlite3_wal_checkpoint_v2(_db, dbName, checkpointMode, logFrameCount, checkpointCount);
+#else
+    NSLog(@"sqlite3_wal_checkpoint_v2 unavailable before sqlite 3.7.6. Ignoring checkpoint mode: %d", mode);
+    int err = sqlite3_wal_checkpoint(_db, dbName);
+#endif
+    if(err != SQLITE_OK) {
+        if (error) {
+            *error = [self lastError];
+        }
+        if (self.logsErrors) NSLog(@"%@", [self lastErrorMessage]);
+        if (self.crashOnErrors) {
+            NSAssert(false, @"%@", [self lastErrorMessage]);
+            abort();
+        }
+        return NO;
+    } else {
+        return YES;
+    }
+}
 
 #pragma mark Cache statements
 
