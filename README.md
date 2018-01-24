@@ -22,6 +22,7 @@ end
 4、xcode工程文件目录下执行命令 pod install,下载可能有点慢
 
 
+
 clone项目之后直接运行FMDBAgg即可得到编译好的FMDB.framework(真机和模拟器)
 </br>
 1、iOS9以上.
