@@ -11,13 +11,13 @@ cocoapods下载sqlite3.h,sqlite3.c文件的方法
 </br>
 3、xcode工程文件目录下创建Podfile,并编辑内容如下,其中dd为xcode工程名
 </br>
-   platform:ios,'9.0'
+platform:ios,'9.0'
 </br>
-   target "dd" do
+target "dd" do
 </br>
-     pod 'FMDB/SQLCipher'
+pod 'FMDB/SQLCipher'
 </br>
-   end
+end
 </br>
 4、xcode工程文件目录下执行命令 pod install,下载可能有点慢
 </br>
