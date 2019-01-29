@@ -3,7 +3,7 @@
 //  FMDB
 //
 //  Created by 宋庆功 on 16/9/27.
-//  Copyright © 2016年 思源. All rights reserved.
+//  Copyright © 2016年 公司名. All rights reserved.
 //
 
 #import <FMDB/FMDB.h>

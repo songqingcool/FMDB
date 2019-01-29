@@ -1,7 +1,7 @@
 # FMDB
 FMDB的简单封装framework静态库
 
-FMDB源代码(https://github.com/ccgus/fmdb) 下载日期 2018年1月24日11:20:28
+FMDB源代码(https://github.com/ccgus/fmdb) 下载日期 2019年1月29日15:30:28
 
 cocoapods下载sqlite3.h,sqlite3.c文件的方法：
 </br>

@@ -3,7 +3,7 @@
 //  FMDB
 //
 //  Created by 宋庆功 on 16/9/27.
-//  Copyright © 2016年 思源. All rights reserved.
+//  Copyright © 2016年 公司名. All rights reserved.
 //
 
 #import "FMDatabaseQueue+Encryption.h"
@@ -54,12 +54,12 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
             [_db setKey:password];
         }
         
-        _path = FMDBReturnRetained(aPath);
+        self.path = FMDBReturnRetained(aPath);
         
         _queue = dispatch_queue_create([[NSString stringWithFormat:@"fmdb.%@", self] UTF8String], NULL);
         dispatch_queue_set_specific(_queue, kDispatchQueueSpecificKey, (__bridge void *)self, NULL);
         _openFlags = openFlags;
-        _vfsName = [vfsName copy];
+        self.vfsName = [vfsName copy];
     }
     
     return self;

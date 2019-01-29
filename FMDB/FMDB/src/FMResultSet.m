@@ -1,6 +1,6 @@
 #import "FMResultSet.h"
 #import "FMDatabase.h"
-#import "unistd.h"
+#import <unistd.h>
 
 #if FMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>
@@ -160,7 +160,7 @@
     return [self nextWithError:nil];
 }
 
-- (BOOL)nextWithError:(NSError **)outErr {
+- (BOOL)nextWithError:(NSError * _Nullable __autoreleasing *)outErr {
     
     int rc = sqlite3_step([_statement statement]);
     

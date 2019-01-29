@@ -11,7 +11,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = E96BCC1D1E7F78830033CCC8 /* Build configuration list for PBXAggregateTarget "FMDBAgg" */;
 			buildPhases = (
-				E96BCC201E7F78F60033CCC8 /* ShellScript */,
+				E96BCC201E7F78F60033CCC8 /* Run Script */,
 			);
 			dependencies = (
 			);
@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		76644C5D22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 76644C5B22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76644C5E22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 76644C5C22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.m */; };
 		E9354C261D9A64E200D613B2 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9354C1C1D9A64E200D613B2 /* FMDB.framework */; };
 		E9354C2B1D9A64E200D613B2 /* FMDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9354C2A1D9A64E200D613B2 /* FMDBTests.m */; };
 		E9354C2D1D9A64E200D613B2 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = E9354C1F1D9A64E200D613B2 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		76644C5B22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
+		76644C5C22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
 		E9354C1C1D9A64E200D613B2 /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9354C1F1D9A64E200D613B2 /* FMDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		E9354C201D9A64E200D613B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76644C5A22003E15001BC677 /* InMemoryOnDiskIO */ = {
+			isa = PBXGroup;
+			children = (
+				76644C5B22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.h */,
+				76644C5C22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.m */,
+			);
+			path = InMemoryOnDiskIO;
+			sourceTree = "<group>";
+		};
 		E9354C121D9A64E200D613B2 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 		E9354C1E1D9A64E200D613B2 /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
+				76644C5A22003E15001BC677 /* InMemoryOnDiskIO */,
 				E9354CDE1D9A70E800D613B2 /* Category */,
 				E9354CAA1D9A6BF600D613B2 /* fts3 */,
 				E9354CB01D9A6BF600D613B2 /* SQLCipher */,
@@ -217,6 +231,7 @@
 				E9354CD21D9A6BF600D613B2 /* FMDatabase.h in Headers */,
 				E9354CD81D9A6BF600D613B2 /* FMDatabaseQueue.h in Headers */,
 				E9354CC81D9A6BF600D613B2 /* FMDatabase+FTS3.h in Headers */,
+				76644C5D22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.h in Headers */,
 				E9354CDA1D9A6BF600D613B2 /* FMResultSet.h in Headers */,
 				E9354CCC1D9A6BF600D613B2 /* fts3_tokenizer.h in Headers */,
 				E9354C2D1D9A64E200D613B2 /* FMDB.h in Headers */,
@@ -269,7 +284,7 @@
 		E9354C131D9A64E200D613B2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "思源";
 				TargetAttributes = {
 					E9354C1B1D9A64E200D613B2 = {
@@ -323,18 +338,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E96BCC201E7F78F60033CCC8 /* ShellScript */ = {
+		E96BCC201E7F78F60033CCC8 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Sets the target folders and the final framework product.\n# 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME\n# 例如: FMK_NAME = \"MyFramework\"\nFMK_NAME=${PROJECT_NAME}\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n# -configuration ${CONFIGURATION}\n# Clean and Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos clean build\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator clean build\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\nmkdir -p \"${INSTALL_DIR}\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\nrm -r \"${WRK_DIR}\"\nopen \"${INSTALL_DIR}\"";
+			shellScript = "# Sets the target folders and the final framework product.\n# 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME\n# 例如: FMK_NAME = \"MyFramework\"\nFMK_NAME=${PROJECT_NAME}\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n# -configuration ${CONFIGURATION}\n# Clean and Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos clean build\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator clean build\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\nmkdir -p \"${INSTALL_DIR}\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\nrm -r \"${WRK_DIR}\"\nopen \"${INSTALL_DIR}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -348,6 +364,7 @@
 				E9354CD31D9A6BF600D613B2 /* FMDatabase.m in Sources */,
 				E9354CE21D9A70E800D613B2 /* FMDatabaseQueue+Encryption.m in Sources */,
 				E9354CD71D9A6BF600D613B2 /* FMDatabasePool.m in Sources */,
+				76644C5E22003E15001BC677 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				E9354CD91D9A6BF600D613B2 /* FMDatabaseQueue.m in Sources */,
 				E9354CCB1D9A6BF600D613B2 /* FMTokenizers.m in Sources */,
 				E9354CDB1D9A6BF600D613B2 /* FMResultSet.m in Sources */,
@@ -387,6 +404,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -394,6 +412,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -445,6 +464,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -452,6 +472,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -529,7 +550,7 @@
 					"-ObjC",
 					"-fembed-bitcode",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.syswin.FMDB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.FMDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -578,7 +599,7 @@
 					"-ObjC",
 					"-fembed-bitcode",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.syswin.FMDB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.FMDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
