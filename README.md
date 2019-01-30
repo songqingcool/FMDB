@@ -11,7 +11,7 @@ cocoapods下载sqlite3.h,sqlite3.c文件的方法：
 </br>
 3、xcode工程文件目录下创建Podfile,并编辑内容如下,其中dd为xcode工程名
 </br>
-platform:ios,'9.0'
+platform:ios,'10.0'
 </br>
 target "dd" do
 </br>
@@ -24,7 +24,7 @@ end
 </br>
 clone项目之后直接运行FMDBAgg即可得到编译好的FMDB.framework(真机和模拟器)
 </br>
-1、iOS9以上.
+1、iOS10以上.
 </br>
 2、支持bitcode.
 </br>
